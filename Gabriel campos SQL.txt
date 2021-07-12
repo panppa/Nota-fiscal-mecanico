@@ -1,0 +1,16 @@
+CREATE SCHEMA GABRIEL_CAMPOS;
+ COMMIT;
+ SET SEARCH_PATH TO GABRIEL_CAMPOS;
+ COMMIT;
+ CREATE TABLE Cliente( nome varchar(150),telefone varchar(150),email varchar(150), cpf varchar(11) PRIMARY KEY);
+ COMMIT; 
+ CREATE TABLE Carro (ano smallint, placa varchar(7) PRIMARY KEY, quilometragem int, modelo varchar(150),cpf varchar(11),posicao int );
+ COMMIT; 
+ CREATE TABLE Ordem_de_serviço ( data smallint, precofinal float,id int PRIMARY KEY);
+ COMMIT; 
+ CREATE TABLE Pecas (preco float,marca varchar(150),id int PRIMARY KEY, nome varchar(150));
+ COMMIT; 
+ ALTER TABLE Carro
+ ADD CONSTRAINT carro_cpf_fkey FOREIGN KEY (cpf)
+ REFERENCES cliente (cpf)
+
